@@ -53,9 +53,9 @@ export abstract class SpineLoaderAbstract<SKD extends ISkeletonData> {
                 },
 
                 async load<SPINEBINARY>(url: string): Promise<SPINEBINARY> {
-                    const response = await settings.ADAPTER.fetch(url);
+                    const isSpineSkelFileURL = checkDataUrl(url, validAtlasMIMEs);
 
-                    const buffer = await response.arrayBuffer();
+                    const buffer = isSpineSkelFileURL ? dataURLToArrayBuffer(url.slice(0, url.lastIndexOf('.'))) : await (await settings.ADAPTER.fetch(url)).arrayBuffer();
 
                     return buffer as SPINEBINARY;
                 },
@@ -200,4 +200,18 @@ export interface ISpineMetadata {
     images?: Record<string, Texture | BaseTexture>;
     // If your spine only uses one atlas page and you have it as a pixi texture or data URL, you can pass it here
     image?: Texture | BaseTexture | string;
+}
+
+function dataURLToArrayBuffer(dataURL: string): ArrayBuffer {
+    const base64 = dataURL.split(',')[1];
+    const binaryString = atob(base64);
+    const length = binaryString.length;
+    const arrayBuffer = new ArrayBuffer(length);
+    const uint8Array = new Uint8Array(arrayBuffer);
+
+    for (let i = 0; i < length; i++) {
+        uint8Array[i] = binaryString.charCodeAt(i);
+    }
+
+    return arrayBuffer;
 }
