@@ -14,8 +14,8 @@ export class Spine extends SpineBase<ISkeleton, ISkeletonData, IAnimationState, 
         let spine: any = null;
 
         if (ver === SPINE_VERSION.VER34) {
-          spine = spine34;
-      }
+            spine = spine34;
+        }
         if (ver === SPINE_VERSION.VER37) {
             spine = spine37;
         }

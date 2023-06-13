@@ -538,7 +538,6 @@ export class SkeletonBinary {
         const scale = this.scale;
         let duration = 0;
         const tempColor1 = new Color();
-        const tempColor2 = new Color();
 
         // Slot timelines.
         for (let i = 0, n = input.readInt(true); i < n; i++) {

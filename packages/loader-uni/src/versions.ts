@@ -18,8 +18,8 @@ export function detectSpineVersion(version: string): SPINE_VERSION {
     const verNum = Math.floor(Number(ver3) * 10 + 1e-3);
 
     if (ver3 === '3.4') {
-      return SPINE_VERSION.VER34;
-  }
+        return SPINE_VERSION.VER34;
+    }
     if (ver3 === '3.7') {
         return SPINE_VERSION.VER37;
     }

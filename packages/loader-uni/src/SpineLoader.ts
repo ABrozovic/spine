@@ -15,8 +15,8 @@ class UniBinaryParser implements ISkeletonParser {
         let ver = detectSpineVersion(version);
 
         if (ver === SPINE_VERSION.VER34) {
-          parser = new spine34.SkeletonBinary(new spine34.AtlasAttachmentLoader(atlas));
-      }
+            parser = new spine34.SkeletonBinary(new spine34.AtlasAttachmentLoader(atlas));
+        }
         if (ver === SPINE_VERSION.VER38) {
             parser = new spine38.SkeletonBinary(new spine38.AtlasAttachmentLoader(atlas));
         }

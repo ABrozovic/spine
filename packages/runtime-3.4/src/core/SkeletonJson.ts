@@ -665,8 +665,8 @@ export class SkeletonJson {
                         frameIndex,
                         this.getValue(valueMap, 'time', 0),
                         this.getValue(valueMap, 'mix', 1),
-                        this.getValue(valueMap, 'softness', 0) * scale,
-                        //TODO: JSON fix
+                        this.getValue(valueMap, 'softness', 0) * scale
+                        // TODO: JSON fix
                         // this.getValue(valueMap, 'bendPositive', true) ? 1 : -1,
                         // this.getValue(valueMap, 'compress', false),
                         // this.getValue(valueMap, 'stretch', false)
