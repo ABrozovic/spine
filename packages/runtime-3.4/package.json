@@ -13,7 +13,7 @@
 		}
 	},
 	"extensionConfig": {
-		"namespace": "PIXI.spine38",
+		"namespace": "PIXI.spine34",
 		"bundle": "dist/runtime-3.4.js",
 		"bundleModule": "dist/runtime-3.4.mjs",
 		"globals": {

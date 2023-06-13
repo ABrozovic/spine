@@ -1,5 +1,5 @@
-import { AttachmentType, Utils } from '../../../../base/src';
-import type { IAttachment, ArrayLike } from '../../../../base/src';
+import { AttachmentType, Utils } from '@pixi-spine/base';
+import type { IAttachment, ArrayLike } from '@pixi-spine/base';
 
 import type { Slot } from '../Slot';
 
@@ -9,7 +9,7 @@ import type { Slot } from '../Slot';
 export abstract class Attachment implements IAttachment {
     name: string;
     type: AttachmentType;
-    cVertices: Array<number>;
+    cVertices: number[];
 
     constructor(name: string) {
         if (name == null) throw new Error('name cannot be null.');
@@ -47,7 +47,7 @@ export abstract class VertexAttachment extends Attachment {
     computeWorldVertices(slot: Slot, start: number, count: number, worldVertices: ArrayLike<number>, offset: number, stride: number) {
         count = offset + (count >> 1) * stride;
         const skeleton = slot.bone.skeleton;
-        const deformArray = slot.deform || [];
+        const deformArray = slot.deform;
         let vertices = this.vertices;
         const bones = this.bones;
 
